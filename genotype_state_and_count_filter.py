@@ -72,9 +72,10 @@ def determine_non_major_alleles(allele_count_dictionary):
     All alleles that are not the major allele are returned"""
 
     major_allele = determine_major_allele(allele_count_dictionary)
-
-    return set(allele_count_dictionary.keys()) - set(major_allele)
-
+    major_allele_set = {major_allele, }
+    non_major_allele = set(allele_count_dictionary.keys()) - major_allele_set
+    
+    return non_major_allele
 
 def determine_alleles_of_interest(variant, allele_type):
     """Determine the allele(s) of interest based on the allele type provided in the CLI"""
